@@ -3,7 +3,11 @@
 import re
 import sys
 
-filename = './mongo.log'
+if len(sys.argv) != 2:
+    print("Usage: %s <MONGODB_LOG>" % sys.argv[0])
+    exit(-1)
+
+filename = sys.argv[1]
 reDbVersion = re.compile(r'db version (?P<version>v\d+\.\d+\.\d+)')
 reDriverVersion = re.compile(r'received client metadata from (?:\d+\.){3}\d+:\d+ conn\d+: { driver: { name: "(?P<driver>[^"]+)", version: "(?P<version>[^"]+)" }')
 
