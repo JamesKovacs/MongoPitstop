@@ -1,0 +1,1 @@
+cat mongo.log | grep -E "received client metadata from ((\d+\.){3}\d+)" | grep -Eo '{ driver: { name: "(.*?)", version: "(.*?)" }' | sort -u
