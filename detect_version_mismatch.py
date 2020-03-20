@@ -10,13 +10,19 @@ reDriverVersion = re.compile(r'received client metadata from (?:\d+\.){3}\d+:\d+
 logFile = open(filename, 'r')
 lines = logFile.readlines()
 
+versionCombos = set()
 lastDbVersion = "UNKNOWN"
 for line in lines:
     dbVersionMatch = reDbVersion.search(line)
     if dbVersionMatch:
         lastDbVersion = dbVersionMatch.group("version")
-        print("Database version detected: %s" % lastDbVersion)
+
     driverVersionMatch = reDriverVersion.search(line)
     if driverVersionMatch:
-        print("Driver detected: %s %s" % (driverVersionMatch.group("driver"), driverVersionMatch.group("version")))
+        driver = driverVersionMatch.group("driver")
+        driverVersion = driverVersionMatch.group("version")
+        versionCombos.add(( driver, driverVersion, lastDbVersion ))
+
+for combo in sorted(versionCombos):
+    print("Detected %s %s running against MongoDB %s" % combo)
 
