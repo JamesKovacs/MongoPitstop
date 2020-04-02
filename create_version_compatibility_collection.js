@@ -2,6 +2,12 @@ db = db.getSiblingDB('DriverVersionCompatibility');
 
 db.compatibility.drop();
 db.compatibility.insertMany([
+  { driver: "MongoDB Internal Client", driverVersions: [ "3.2" ], compatibleDbVersions: [ "3.2" ] },
+  { driver: "MongoDB Internal Client", driverVersions: [ "3.4" ], compatibleDbVersions: [ "3.4" ] },
+  { driver: "MongoDB Internal Client", driverVersions: [ "3.6" ], compatibleDbVersions: [ "3.6" ] },
+  { driver: "MongoDB Internal Client", driverVersions: [ "4.0" ], compatibleDbVersions: [ "4.0" ] },
+  { driver: "MongoDB Internal Client", driverVersions: [ "4.2" ], compatibleDbVersions: [ "4.2" ] },
+
   { driver: "mongo-go-driver", driverVersions: [ "1.0" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0" ] },
   { driver: "mongo-go-driver", driverVersions: [ "1.1", "1.2", "1.3" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0", "4.2" ] },
 
@@ -11,6 +17,17 @@ db.compatibility.insertMany([
   { driver: "mongo-csharp-driver", driverVersions: [ "2.5", "2.6" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6" ] },
   { driver: "mongo-csharp-driver", driverVersions: [ "2.7", "2.8" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0" ] },
   { driver: "mongo-csharp-driver", driverVersions: [ "2.9", "2.10" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0", "4.2" ] },
+
+  { driver: "nodejs", driverVersions: [ "1.4", "2.0" ], compatibleDbVersions: [ "2.6", "3.0" ] },
+  { driver: "nodejs", driverVersions: [ "2.2" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4" ] },
+  { driver: "nodejs", driverVersions: [ "3.0" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6" ] },
+  { driver: "nodejs", driverVersions: [ "3.1", "3.2" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0" ] },
+  { driver: "nodejs", driverVersions: [ "3.3", "3.4", "3.5" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0", "4.2" ] },
+
+  { driver: "nodejs-core", driverVersions: [ "1.4", "2.0" ], compatibleDbVersions: [ "2.6", "3.0" ] },
+  { driver: "nodejs-core", driverVersions: [ "2.2" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4" ] },
+  { driver: "nodejs-core", driverVersions: [ "3.0" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6" ] },
+  { driver: "nodejs-core", driverVersions: [ "3.1", "3.2" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0" ] },
 
   { driver: "PyMongo", driverVersions: [ "2.7" ], compatibleDbVersions: [ "2.6" ] },
   { driver: "PyMongo", driverVersions: [ "2.8", "2.9", "3.0", "3.1" ], compatibleDbVersions: [ "2.6", "3.0" ] },
