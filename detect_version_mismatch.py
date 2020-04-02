@@ -17,7 +17,7 @@ logFile = open(filename, 'r')
 lines = logFile.readlines()
 
 versionCombos = set()
-lastDbVersion = "UNKNOWN"
+lastDbVersion = "0.0.0"
 for line in lines:
     dbVersionMatch = reDbVersion.search(line)
     if dbVersionMatch:
