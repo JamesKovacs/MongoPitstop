@@ -2,6 +2,7 @@
 
 import re
 import sys
+from pymaybe import maybe
 from pymongo import MongoClient
 
 if len(sys.argv) != 2:
@@ -31,6 +32,7 @@ for line in lines:
 
 client = MongoClient("mongodb://localhost:27017")
 db = client.DriverVersionCompatibility
+#sample document
 #{'_id': ObjectId('5e820f4557e264e6f81d9acc'),
 # 'compatibleDbVersions': ['2.6', '3.0', '3.2', '3.4', '3.6', '4.0', '4.2'],
 # 'driver': 'PyMongo',
@@ -40,8 +42,10 @@ results = []
 
 for versionCombo in versionCombos:
     driver = versionCombo[0]
-    driverMajorMinorVersion = reMajorMinor.match(versionCombo[1]).group("majorMinor")
-    dbMajorMinorVersion = reMajorMinor.match(versionCombo[2]).group("majorMinor")
+    driverVersion = versionCombo[1]
+    dbVersion = versionCombo[2]
+    driverMajorMinorVersion = maybe(reMajorMinor.match(driverVersion)).group("majorMinor").or_else("0.0")
+    dbMajorMinorVersion = maybe(reMajorMinor.match(dbVersion)).group("majorMinor").or_else("0.0")
     if (
         driver == "MongoDB Internal Client" or
         driver == "AddShard-TaskExecutor" or
