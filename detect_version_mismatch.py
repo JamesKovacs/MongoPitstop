@@ -3,7 +3,6 @@
 import re
 import sys
 from pymongo import MongoClient
-import pprint
 
 if len(sys.argv) != 2:
     print("Usage: %s <MONGODB_LOG>" % sys.argv[0])
@@ -37,10 +36,14 @@ db = client.DriverVersionCompatibility
 # 'driver': 'PyMongo',
 # 'driverVersions': ['3.9']}
 
+if len(versionCombos) > 0:
+    print("WARNING: Potential driver compatibility problems detected.")
+    print("         See [Driver Compatibility](https://docs.mongodb.com/ecosystem/drivers/driver-compatibility-reference/) for more information.")
+
 for versionCombo in versionCombos:
     driverMajorMinorVersion = reMajorMinor.search(versionCombo[1]).group("majorMinor")
     dbMajorMinorVersion = reMajorMinor.search(versionCombo[2]).group("majorMinor")
     compatibility = db.compatibility.find_one({"driver": versionCombo[0], "driverVersions": driverMajorMinorVersion})
     if compatibility is not None and dbMajorMinorVersion not in compatibility["compatibleDbVersions"]:
-        pprint.pprint("WARNING: %s %s is not compatible with MongoDB %s" % versionCombo)
+        print("- %s %s has not been tested with MongoDB %s" % versionCombo)
 
