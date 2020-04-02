@@ -55,11 +55,12 @@ for versionCombo in versionCombos:
         if compatibility is not None and dbMajorMinorVersion not in compatibility["compatibleDbVersions"]:
             results.append("- %s %s: Driver has not been tested with MongoDB %s" % versionCombo)
         elif compatibility is None:
-            results.append("- %s %s: Unknown, pre-release, or third-party driver" % (versionCombo[0], versionCombo[1]))
+            results.append("- %s %s: Unknown, pre-release, or third-party driver run against MongoDB %s" % versionCombo)
 
 if len(results) > 0:
     print("WARNING: Potential driver compatibility problems detected.")
     print("         See [Driver Compatibility](https://docs.mongodb.com/ecosystem/drivers/driver-compatibility-reference/) for more information.")
 
+results.sort()
 for result in results:
     print(result)
