@@ -36,16 +36,25 @@ db = client.DriverVersionCompatibility
 # 'driver': 'PyMongo',
 # 'driverVersions': ['3.9']}
 
-if len(versionCombos) > 0:
+results = []
+
+for versionCombo in versionCombos:
+    driver = versionCombo[0]
+    driverMajorMinorVersion = reMajorMinor.match(versionCombo[1]).group("majorMinor")
+    dbMajorMinorVersion = reMajorMinor.match(versionCombo[2]).group("majorMinor")
+    if driver == "MongoDB Internal Client" or driver.startswith("NetworkInterfaceASIO-"):
+        if driverMajorMinorVersion != dbMajorMinorVersion:
+            results.append("- %s %s: Mixed-version cluster detected with MongoDB %s" %versionCombo)
+    else:
+        compatibility = db.compatibility.find_one({"driver": driver, "driverVersions": driverMajorMinorVersion})
+        if compatibility is not None and dbMajorMinorVersion not in compatibility["compatibleDbVersions"]:
+            results.append("- %s %s: Driver has not been tested with MongoDB %s" % versionCombo)
+        elif compatibility is None:
+            results.append("- %s %s: Unknown, pre-release, or third-party driver" % (versionCombo[0], versionCombo[1]))
+
+if len(results) > 0:
     print("WARNING: Potential driver compatibility problems detected.")
     print("         See [Driver Compatibility](https://docs.mongodb.com/ecosystem/drivers/driver-compatibility-reference/) for more information.")
 
-for versionCombo in versionCombos:
-    driverMajorMinorVersion = reMajorMinor.match(versionCombo[1]).group("majorMinor")
-    dbMajorMinorVersion = reMajorMinor.match(versionCombo[2]).group("majorMinor")
-    compatibility = db.compatibility.find_one({"driver": versionCombo[0], "driverVersions": driverMajorMinorVersion})
-    if compatibility is not None and dbMajorMinorVersion not in compatibility["compatibleDbVersions"]:
-        print("- %s %s: Driver has not been tested with MongoDB %s" % versionCombo)
-    elif compatibility is None:
-        print("- %s %s: Unknown, pre-release, or third-party driver" % (versionCombo[0], versionCombo[1]))
-
+for result in results:
+    print(result)

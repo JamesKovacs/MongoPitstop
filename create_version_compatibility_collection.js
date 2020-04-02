@@ -2,12 +2,6 @@ db = db.getSiblingDB('DriverVersionCompatibility');
 
 db.compatibility.drop();
 db.compatibility.insertMany([
-  { driver: "MongoDB Internal Client", driverVersions: [ "3.2" ], compatibleDbVersions: [ "3.2" ] },
-  { driver: "MongoDB Internal Client", driverVersions: [ "3.4" ], compatibleDbVersions: [ "3.4" ] },
-  { driver: "MongoDB Internal Client", driverVersions: [ "3.6" ], compatibleDbVersions: [ "3.6" ] },
-  { driver: "MongoDB Internal Client", driverVersions: [ "4.0" ], compatibleDbVersions: [ "4.0" ] },
-  { driver: "MongoDB Internal Client", driverVersions: [ "4.2" ], compatibleDbVersions: [ "4.2" ] },
-
   { driver: "mongo-go-driver", driverVersions: [ "1.0" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0" ] },
   { driver: "mongo-go-driver", driverVersions: [ "1.1", "1.2", "1.3" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0", "4.2" ] },
 
