@@ -12,6 +12,14 @@ db.compatibility.insertMany([
   { driver: "mongo-csharp-driver", driverVersions: [ "2.7", "2.8" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0" ] },
   { driver: "mongo-csharp-driver", driverVersions: [ "2.9", "2.10" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0", "4.2" ] },
 
+  { driver: "mongo-java-driver", driverVersions: [ "2.12" ], compatibleDbVersions: [ "2.6" ] },
+  { driver: "mongo-java-driver", driverVersions: [ "2.13", "3.0", "3.1" ], compatibleDbVersions: [ "2.6", "3.0" ] },
+  { driver: "mongo-java-driver", driverVersions: [ "2.14", "3.2", "3.3" ], compatibleDbVersions: [ "2.6", "3.0", "3.2" ] },
+  { driver: "mongo-java-driver", driverVersions: [ "3.4", "3.5" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4" ] },
+  { driver: "mongo-java-driver", driverVersions: [ "3.6", "3.7" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6" ] },
+  { driver: "mongo-java-driver", driverVersions: [ "3.8", "3.9", "3.10" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0" ] },
+  { driver: "mongo-java-driver", driverVersions: [ "3.11", "3.12" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0", "4.2" ] },
+
   { driver: "nodejs", driverVersions: [ "1.4", "2.0" ], compatibleDbVersions: [ "2.6", "3.0" ] },
   { driver: "nodejs", driverVersions: [ "2.2" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4" ] },
   { driver: "nodejs", driverVersions: [ "3.0" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6" ] },
