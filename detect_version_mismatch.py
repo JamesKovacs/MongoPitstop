@@ -41,9 +41,11 @@ if len(versionCombos) > 0:
     print("         See [Driver Compatibility](https://docs.mongodb.com/ecosystem/drivers/driver-compatibility-reference/) for more information.")
 
 for versionCombo in versionCombos:
-    driverMajorMinorVersion = reMajorMinor.search(versionCombo[1]).group("majorMinor")
-    dbMajorMinorVersion = reMajorMinor.search(versionCombo[2]).group("majorMinor")
+    driverMajorMinorVersion = reMajorMinor.match(versionCombo[1]).group("majorMinor")
+    dbMajorMinorVersion = reMajorMinor.match(versionCombo[2]).group("majorMinor")
     compatibility = db.compatibility.find_one({"driver": versionCombo[0], "driverVersions": driverMajorMinorVersion})
     if compatibility is not None and dbMajorMinorVersion not in compatibility["compatibleDbVersions"]:
         print("- %s %s has not been tested with MongoDB %s" % versionCombo)
+    elif compatibility is None:
+        print("- Unknown driver: %s %s" % (versionCombo[0], versionCombo[1]))
 
