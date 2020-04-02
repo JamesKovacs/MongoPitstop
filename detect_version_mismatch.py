@@ -42,7 +42,12 @@ for versionCombo in versionCombos:
     driver = versionCombo[0]
     driverMajorMinorVersion = reMajorMinor.match(versionCombo[1]).group("majorMinor")
     dbMajorMinorVersion = reMajorMinor.match(versionCombo[2]).group("majorMinor")
-    if driver == "MongoDB Internal Client" or driver.startswith("NetworkInterfaceASIO-"):
+    if (
+        driver == "MongoDB Internal Client" or
+        driver == "AddShard-TaskExecutor" or
+        driver == "NetworkInterfaceTL" or
+        driver.startswith("NetworkInterfaceASIO-")
+       ):
         if driverMajorMinorVersion != dbMajorMinorVersion:
             results.append("- %s %s: Mixed-version cluster detected with MongoDB %s" %versionCombo)
     else:
