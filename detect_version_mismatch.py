@@ -26,9 +26,10 @@ for line in lines:
 
     driverVersionMatch = reDriverVersion.search(line)
     if driverVersionMatch:
-        driver = driverVersionMatch.group("driver")
-        driverVersion = driverVersionMatch.group("version")
-        versionCombos.add(( driver, driverVersion, lastDbVersion ))
+        drivers = driverVersionMatch.group("driver").split("|")
+        driverVersions = driverVersionMatch.group("version").split("|")
+        for (driver, driverVersion) in zip(drivers, driverVersions):
+            versionCombos.add(( driver, driverVersion, lastDbVersion ))
 
 client = MongoClient("mongodb://localhost:27017")
 db = client.DriverVersionCompatibility
