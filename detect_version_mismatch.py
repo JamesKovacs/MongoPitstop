@@ -13,6 +13,7 @@ filename = sys.argv[1]
 reDbVersion = re.compile(r'db version (?P<version>v\d+\.\d+\.\d+)')
 reDriverVersion = re.compile(r'received client metadata from (?:\d+\.){3}\d+:\d+ conn\d+: { driver: { name: "(?P<driver>[^"]+)", version: "(?P<version>[^"]+)" }')
 reMajorMinor = re.compile(r'^v?(?P<majorMinor>\d+\.\d+)')
+reSeparators = re.compile(r'\|| \/ ')
 
 logFile = open(filename, 'r')
 lines = logFile.readlines()
@@ -26,8 +27,8 @@ for line in lines:
 
     driverVersionMatch = reDriverVersion.search(line)
     if driverVersionMatch:
-        drivers = driverVersionMatch.group("driver").split("|")
-        driverVersions = driverVersionMatch.group("version").split("|")
+        drivers = reSeparators.split(driverVersionMatch.group("driver"))
+        driverVersions = reSeparators.split(driverVersionMatch.group("version"))
         for (driver, driverVersion) in zip(drivers, driverVersions):
             versionCombos.add(( driver, driverVersion, lastDbVersion ))
 
