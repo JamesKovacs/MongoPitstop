@@ -51,7 +51,12 @@ var result = db.compatibility.insertMany([
   { driver: "MongoDB Perl Driver", driverVersions: [ "2.0" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0" ] },
   { driver: "MongoDB Perl Driver", driverVersions: [ "2.2" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0", "4.2" ] },
   // PHP Driver
-  //
+  { driver: "ext-mongodb:PHP", driverVersions: [ "1.0" ], compatibleDbVersions: [ "2.6", "3.0" ] },
+  { driver: "ext-mongodb:PHP", driverVersions: [ "1.1" ], compatibleDbVersions: [ "2.6", "3.0", "3.2" ] },
+  { driver: "ext-mongodb:PHP", driverVersions: [ "1.2", "1.3" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4" ] },
+  { driver: "ext-mongodb:PHP", driverVersions: [ "1.4" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6" ] },
+  { driver: "ext-mongodb:PHP", driverVersions: [ "1.5" ], compatibleDbVersions: [ "3.0", "3.2", "3.4", "3.6", "4.0" ] },
+  { driver: "ext-mongodb:PHP", driverVersions: [ "1.6" ], compatibleDbVersions: [ "3.0", "3.2", "3.4", "3.6", "4.0", "4.2" ] },
   // Python Driver
   { driver: "PyMongo", driverVersions: [ "2.7" ], compatibleDbVersions: [ "2.6" ] },
   { driver: "PyMongo", driverVersions: [ "2.8", "2.9", "3.0", "3.1" ], compatibleDbVersions: [ "2.6", "3.0" ] },
