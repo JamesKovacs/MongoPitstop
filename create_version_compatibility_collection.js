@@ -45,7 +45,11 @@ var result = db.compatibility.insertMany([
   { driver: "nodejs-core", driverVersions: [ "3.0" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6" ] },
   { driver: "nodejs-core", driverVersions: [ "3.1", "3.2" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0" ] },
   // Perl Driver
-  //
+  { driver: "MongoDB Perl Driver", driverVersions: [ "1.0" ], compatibleDbVersions: [ "2.6", "3.0" ] },
+  { driver: "MongoDB Perl Driver", driverVersions: [ "1.2", "1.4" ], compatibleDbVersions: [ "2.6", "3.0", "3.2" ] },
+  { driver: "MongoDB Perl Driver", driverVersions: [ "1.6", "1.8" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4" ] },
+  { driver: "MongoDB Perl Driver", driverVersions: [ "2.0" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0" ] },
+  { driver: "MongoDB Perl Driver", driverVersions: [ "2.2" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0", "4.2" ] },
   // PHP Driver
   //
   // Python Driver
@@ -68,7 +72,7 @@ var result = db.compatibility.insertMany([
   { driver: "mongo-ruby-driver", driverVersions: [ "2.6", "2.7", "2.8", "2.9" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0" ] },
   { driver: "mongo-ruby-driver", driverVersions: [ "2.10" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0", "4.2" ] },
   // Rust Driver
-  //
+  { driver: "mongo-rust-driver", driverVersions: [ "0.9" ], compatibleDbVersions: [ "3.6", "4.0", "4.2" ] },
   // Scala Driver
   { driver: "mongo-scala-driver", driverVersions: [ "1.0" ], compatibleDbVersions: [ "2.6", "3.0" ] },
   { driver: "mongo-scala-driver", driverVersions: [ "1.1" ], compatibleDbVersions: [ "2.6", "3.0", "3.2" ] },
@@ -77,6 +81,6 @@ var result = db.compatibility.insertMany([
   { driver: "mongo-scala-driver", driverVersions: [ "2.4", "2.5", "2.6" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0" ] },
   { driver: "mongo-scala-driver", driverVersions: [ "2.7", "2.8" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0", "4.2" ] },
   // Swift Driver
-  //
+  { driver: "MongoSwift", driverVersions: [ "0.2" ], compatibleDbVersions: [ "3.6", "4.0", "4.2" ] },
 ]);
 print(`${result.insertedIds.length} driver version documents inserted`);
