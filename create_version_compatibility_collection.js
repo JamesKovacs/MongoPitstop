@@ -66,7 +66,11 @@ var result = db.compatibility.insertMany([
   { driver: "PyMongo", driverVersions: [ "3.7", "3.8" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0" ] },
   { driver: "PyMongo", driverVersions: [ "3.9", "3.10" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0", "4.2" ] },
   // Motor Driver
-  //
+  { driver: "Motor", driverVersions: [ "0.2", "0.3" ], compatibleDbVersions: [ "2.6" ] },
+  { driver: "Motor", driverVersions: [ "0.4", "0.5", "0.6" ], compatibleDbVersions: [ "2.6", "3.0" ] },
+  { driver: "Motor", driverVersions: [ "0.7" ], compatibleDbVersions: [ "2.6", "3.0", "3.2" ] },
+  { driver: "Motor", driverVersions: [ "1.0", "1.1" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4" ] },
+  { driver: "Motor", driverVersions: [ "1.2" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6" ] },
   // Ruby Driver
   { driver: "mongo-ruby-driver", driverVersions: [ "1.8", "1.9" ], compatibleDbVersions: [ "2.4" ] },
   { driver: "mongo-ruby-driver", driverVersions: [ "1.10", "1.11" ], compatibleDbVersions: [ "2.4", "2.6" ] },
