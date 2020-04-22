@@ -59,7 +59,14 @@ var result = db.compatibility.insertMany([
   // Motor Driver
   //
   // Ruby Driver
-  //
+  { driver: "mongo-ruby-driver", driverVersions: [ "1.8", "1.9" ], compatibleDbVersions: [ "2.4" ] },
+  { driver: "mongo-ruby-driver", driverVersions: [ "1.10", "1.11" ], compatibleDbVersions: [ "2.4", "2.6" ] },
+  { driver: "mongo-ruby-driver", driverVersions: [ "1.12", "2.0" ], compatibleDbVersions: [ "2.4", "2.6", "3.0" ] },
+  { driver: "mongo-ruby-driver", driverVersions: [ "2.2", "2.3" ], compatibleDbVersions: [ "2.4", "2.6", "3.0", "3.2" ] },
+  { driver: "mongo-ruby-driver", driverVersions: [ "2.4" ], compatibleDbVersions: [ "2.4", "2.6", "3.0", "3.2", "3.4" ] },
+  { driver: "mongo-ruby-driver", driverVersions: [ "2.5" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6" ] },
+  { driver: "mongo-ruby-driver", driverVersions: [ "2.6", "2.7", "2.8", "2.9" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0" ] },
+  { driver: "mongo-ruby-driver", driverVersions: [ "2.10" ], compatibleDbVersions: [ "2.6", "3.0", "3.2", "3.4", "3.6", "4.0", "4.2" ] },
   // Rust Driver
   //
   // Scala Driver
