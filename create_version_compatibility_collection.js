@@ -1,6 +1,8 @@
 db = db.getSiblingDB('DriverVersionCompatibility');
 
 db.compatibility.drop();
+
+// Driver Compatibility Matrix: https://docs.mongodb.com/drivers/driver-compatibility-reference
 var result = db.compatibility.insertMany([
   // C Driver
   { driver: "mongoc", driverVersions: [ "1.0", "1.1", "1.2" ], compatibleDbVersions: [ "2.6", "3.0" ] },
