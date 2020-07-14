@@ -1,0 +1,19 @@
+WARNING: Potential driver compatibility problems detected.
+         See [Driver Compatibility](https://docs.mongodb.com/ecosystem/drivers/driver-compatibility-reference/) for more information.
+- MongoDB Perl Driver 2.0.1: Driver has not been tested with MongoDB v4.2.3
+- MongoSwift 0.1.3: Unknown, pre-release, or third-party driver run against MongoDB v4.2.3
+- Motor 2.1.0: Unknown, pre-release, or third-party driver run against MongoDB v4.2.3
+- PyMongo 3.6.1: Driver has not been tested with MongoDB v4.0.5
+- ext-mongodb:PHP 1.7.4: Unknown, pre-release, or third-party driver run against MongoDB v4.2.3
+- mongo-go-driver v0.1.0: Unknown, pre-release, or third-party driver run against MongoDB v4.0.4
+- mongo-go-driver v0.1.0: Unknown, pre-release, or third-party driver run against MongoDB v4.0.5
+- mongo-go-driver v0.3.0: Unknown, pre-release, or third-party driver run against MongoDB v4.0.5
+- mongo-go-driver v1.0.0: Driver has not been tested with MongoDB v4.2.1
+- mongo-go-driver v1.0.3: Driver has not been tested with MongoDB v4.2.0
+- mongo-go-driver v1.0.3: Driver has not been tested with MongoDB v4.2.1
+- mongo-go-driver v1.0.3: Driver has not been tested with MongoDB v4.2.3
+- mongoc 1.14.0: Driver has not been tested with MongoDB v4.2.3
+- nodejs 3.1.13: Driver has not been tested with MongoDB v4.2.0
+- nodejs 3.1.13: Driver has not been tested with MongoDB v4.2.1
+- nodejs 3.1.13: Driver has not been tested with MongoDB v4.2.3
+- nodejs-core 3.2.7: Driver has not been tested with MongoDB v4.2.0
