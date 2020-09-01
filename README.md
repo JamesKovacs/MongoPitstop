@@ -3,7 +3,7 @@ Useful scripts for detecting MongoDB driver problems
 
 ## Installation
 ```
-git clone https://github.com/JamesKovacs/MongoPitstop.git
+git clone git@github.com:JamesKovacs/MongoPitstop.git
 cd MongoPitstop
 pip install -r requirements.txt
 ```
